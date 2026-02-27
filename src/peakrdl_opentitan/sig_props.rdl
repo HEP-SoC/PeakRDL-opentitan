@@ -1,16 +1,30 @@
-enum SignalType {
-    output   = 0;
-    input    = 1;
-    inout    = 2;
-    tri      = 3;
-    clk      = 4;
-    rst      = 5;
-    wire     = 6;
-    blank    = 7;
+//
+// Extra SystemRDL features to match OpenTitan ones
+//
+
+property output {
+    type = boolean;
+    component = signal;
 };
 
-property signal_type {
-    type = SignalType;
+property input {
+    type = boolean;
+    component = signal;
+};
+
+property inout {
+    type = boolean;
+    component = signal;
+};
+
+property clock {
+    type = boolean;
+    component = signal;
+};
+
+// reset property is a a built-in SystemRDL property but not for signals
+property reset_signal {
+    type = boolean;
     component = signal;
 };
 
